@@ -1,0 +1,73 @@
+How to create our first django-application inside the project
+--------------------------------------------------------------
+step 1) activate a vir environment
+
+step 2) go to main folder and create a project
+
+step 3) in projector container create an application
+
+
+step 4) application is created by using command 
+
+	python manage.py startapp appName[myapp]
+
+step 5) one new older will be created inside the project container.
+
+Describe about files present in app:
+----------------------------------------
+__init__.py:
+---------------
+It is initialization file. It is blank python script file. Python treated this file as a package.
+
+Admin.py:
+--------------------
+In this file contains the code which is reasonable for giving the feature to the admin. If ever we want to give any access to the admin the code with respect to that will be written in admin.py
+
+App.py:
+-----------------
+It is file containing the configuration of an APP
+
+Models.py:
+--------------
+It is the database related file was we write our code to create a table inside the 
+database.
+
+Test.py:
+------------
+It is file that contains the test cases (unit test cases) that are written to automate the project.
+
+Views.py:
+-----------------
+It is file containing the functions (or) the classes that are reasonable for views 
+operations rendering the response to the front end.
+
+step 5: 
+open views.py inside the application and create your own views
+
+from django.shortcuts import render
+from django.http import HttpResponse
+
+# Create your views here.
+def home(request):
+    return HttpResponse("<h1 style='color : red'>This is Home page</h1>")
+
+
+step 6:
+after creating own views, all the views need to be registered with url
+so we need to open urls.py from the project directory.
+
+
+
+step 7:
+create your own urls with connecting with views
+
+from django.contrib import admin
+from django.urls import path
+from myapp.views import home
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('home/',home)
+
+step 8: run the server
+
